@@ -57,8 +57,11 @@ CreateThread(function()
             else
 
                 if showing.owner == myPlayerId then
-                    if IsControlJustPressed(0,  Config.interacKeyControlId) then
-                        TriggerServerEvent('showVehicle:removeShowing', strId)
+                    local distance = #(playerCorrds - location.coords)
+                    if distance < location.radius then
+                        if IsControlJustPressed(0,  Config.interacKeyControlId) then
+                            TriggerServerEvent('showVehicle:removeShowing', strId)
+                        end
                     end
                 end
                 
